@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6cdf09875a4d49ae105f23523f7bed, type: 3}
+  m_Name: Popping Items Config
+  m_EditorClassIdentifier: 
+  <RightAnswersCount>k__BackingField: 5
+  <BubbleVelocity>k__BackingField: {x: 0, y: 4}
+  <DestroyOffset>k__BackingField: 6.5
+  <BubbleView>k__BackingField: {fileID: 7421118032521538712, guid: ac2616e8e2226a94ba15b7dc73a8a548, type: 3}
+  <ToolbarView>k__BackingField: {fileID: 1457833746881804663, guid: ad3bb76ab8c3d214c9ab376eab962f6d, type: 3}
+  <EndGameView>k__BackingField: {fileID: 4682082271574729642, guid: f30657e6ac5d7694794b5578ae1b2883, type: 3}
+  <SpawnPoints>k__BackingField:
+  - {x: -7.37, y: -6.49, z: 0}
+  - {x: -1.55, y: -6.49, z: 0}
+  - {x: 4.16, y: -6.49, z: 0}
+  - {x: -4.43, y: -9.26, z: 0}
+  - {x: 1.33, y: -9.26, z: 0}
+  - {x: 7.22, y: -9.26, z: 0}
