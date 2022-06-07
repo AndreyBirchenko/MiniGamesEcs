@@ -1,8 +1,8 @@
-﻿using Poppingitems.Components;
+﻿using Core.Services.Toolbar.Components;
 
 using UnityEngine;
 
-namespace Poppingitems.Services
+namespace Core.Services.Toolbar
 {
     public class TaskService
     {

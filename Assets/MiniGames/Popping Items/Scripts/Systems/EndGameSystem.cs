@@ -1,8 +1,8 @@
 ﻿using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using Poppingitems.Components.Events;
-using Poppingitems.Services;
+using Core.Services.Toolbar.Components.Events;
+using Core.Services.Toolbar;
 
 namespace Core.Systems
 {

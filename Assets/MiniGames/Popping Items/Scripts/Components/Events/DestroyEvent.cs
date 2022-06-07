@@ -1,8 +1,8 @@
-﻿using Poppingitems.Views;
+﻿using Core.Services.Toolbar.Views;
 
 using UnityEngine;
 
-namespace Poppingitems.Components.Events
+namespace Core.Services.Toolbar.Components.Events
 {
     public struct DestroyEvent
     {

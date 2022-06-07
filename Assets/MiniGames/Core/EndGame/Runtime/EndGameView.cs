@@ -3,7 +3,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Poppingitems.Views
+namespace Core.Services.Toolbar.Views
 {
     public class EndGameView : MonoBehaviour
     {

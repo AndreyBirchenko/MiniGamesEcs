@@ -6,7 +6,7 @@ using Leopotam.EcsLite.Di;
 using MiniGames.SortingConveyor.Configs;
 using MiniGames.SortingConveyor.Systems;
 
-using Poppingitems.Services;
+using Core.Services.Toolbar;
 
 using MiniGames.SortingConveyor.Components.Events;
 using MiniGames.SortingConveyor.Services;

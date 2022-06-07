@@ -1,15 +1,15 @@
-﻿using DG.Tweening;
+﻿using Core.Services.Toolbar.Components.Events;
+
+using DG.Tweening;
 
 using Leopotam.EcsLite;
-
-using Poppingitems.Components.Events;
 
 using TMPro;
 
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Poppingitems.Views
+namespace Core.Services.Toolbar.Views
 {
     [RequireComponent(typeof(Collider2D))]
     public class BubbleView : MonoBehaviour, IPointerClickHandler

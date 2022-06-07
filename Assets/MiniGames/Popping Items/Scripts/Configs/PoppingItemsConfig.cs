@@ -1,8 +1,8 @@
-﻿using Poppingitems.Views;
+﻿using Core.Services.Toolbar.Views;
 
 using UnityEngine;
 
-namespace Poppingitems.Configs
+namespace Core.Services.Toolbar.Configs
 {
     [CreateAssetMenu(menuName = "MiniGames/PoppingItemsConfig", order = 0)]
     public class PoppingItemsConfig : ScriptableObject

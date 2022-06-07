@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace Poppingitems.Views
+namespace Core.Services.Toolbar.Views
 {
     public class ToolbarView : MonoBehaviour
     {
@@ -14,7 +14,7 @@ namespace Poppingitems.Views
 
         public void SetTaskText(string text)
         {
-            _taskTextMeshPro.text = $"Pop all bubbles with number {text}";
+            _taskTextMeshPro.text = text;
         }
 
         public void SetMaxAnswerCount(int maxStepsCount)

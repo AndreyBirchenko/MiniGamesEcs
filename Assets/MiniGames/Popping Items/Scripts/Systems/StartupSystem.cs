@@ -1,8 +1,8 @@
 ﻿using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using Poppingitems.Configs;
-using Poppingitems.Services;
+using Core.Services.Toolbar.Configs;
+using Core.Services.Toolbar;
 
 namespace Core.Systems
 {
@@ -15,7 +15,8 @@ namespace Core.Systems
         public void Init(EcsSystems systems)
         {
             _taskService.Value.GenerateGlobalTask();
-            _toolbar.Value.Show(_config.Value.RightAnswersCount, _taskService.Value.GlobalTask.Answer.ToString());
+            _toolbar.Value.Show(_config.Value.RightAnswersCount,
+                $"Pop all bubbles with number {_taskService.Value.GlobalTask.Answer.ToString()}");
         }
     }
 }
