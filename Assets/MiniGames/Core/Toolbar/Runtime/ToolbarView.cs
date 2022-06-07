@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+
+using TMPro;
 
 using UnityEngine;
 
@@ -12,6 +14,8 @@ namespace Core.Services.Toolbar.Views
         private float _deltaDistance = 749.5f;
         private float _stepDistance;
 
+        private Sequence _sequence;
+
         public void SetTaskText(string text)
         {
             _taskTextMeshPro.text = text;
@@ -24,7 +28,21 @@ namespace Core.Services.Toolbar.Views
 
         public void Fill()
         {
-            _slider.transform.position += new Vector3(_stepDistance, 0, 0);
+            _sequence = GetSequence();
+            _sequence
+                .Append(_slider.transform
+                    .DOMoveX(_slider.transform.position.x + _stepDistance, 0.4f));
+        }
+
+        private Sequence GetSequence()
+        {
+            if (_sequence.IsActive() && _sequence.IsPlaying())
+            {
+                _sequence.Kill();
+                _sequence = null;
+            }
+
+            return DOTween.Sequence();
         }
     }
 }
