@@ -27,8 +27,8 @@ namespace MiniGames.Poppingitems
 
         void Start()
         {
-            _toolbarService = new ToolbarService(_config.ToolbarView);
-            _endGameService = new EndGameService(_config.EndGameView);
+            _toolbarService = new ToolbarService();
+            _endGameService = new EndGameService();
             
             _systems = new EcsSystems(new EcsWorld());
             _systems

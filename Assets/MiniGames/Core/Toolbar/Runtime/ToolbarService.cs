@@ -8,9 +8,10 @@ namespace Core.Services.Toolbar
     {
         private readonly ToolbarView _view;
 
-        public ToolbarService(ToolbarView view)
+        public ToolbarService()
         {
-            _view = Object.Instantiate(view);
+            var viewPrefab = Resources.Load<ToolbarView>("Toolbar/ToolbarView");
+            _view = Object.Instantiate(viewPrefab);
         }
 
         public void Show(int maxStepsCount, string taskText = " ")

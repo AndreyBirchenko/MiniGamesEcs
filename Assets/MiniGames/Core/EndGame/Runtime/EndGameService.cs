@@ -9,9 +9,10 @@ namespace Core.Services.Toolbar
     {
         private readonly EndGameView _endGameView;
 
-        public EndGameService(EndGameView endGameView)
+        public EndGameService()
         {
-            _endGameView = Object.Instantiate(endGameView);
+            var endGamePrefab = Resources.Load<EndGameView>("EndGame/EndGameView");
+            _endGameView = Object.Instantiate(endGamePrefab);
             _endGameView.SubscribeRestartButton(HandleRestartButton);
             _endGameView.SubscribeQuitButton(HandleQuitButton);
         }
