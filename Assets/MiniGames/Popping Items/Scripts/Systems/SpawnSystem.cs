@@ -11,7 +11,7 @@ using Utility;
 
 using UnityEngine;
 
-namespace Poppingitems.Systems
+namespace Core.Systems
 {
     sealed class SpawnSystem : IEcsRunSystem, IEcsInitSystem
     {

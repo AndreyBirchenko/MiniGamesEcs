@@ -1,4 +1,4 @@
-﻿using Poppingitems.Interfaces;
+﻿using Core.Interfaces;
 
 namespace Poppingitems.Components.Events
 {

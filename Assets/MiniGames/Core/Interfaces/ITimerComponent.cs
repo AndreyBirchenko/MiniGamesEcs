@@ -1,4 +1,4 @@
-﻿namespace Poppingitems.Interfaces
+﻿namespace Core.Interfaces
 {
     public interface ITimerComponent
     {

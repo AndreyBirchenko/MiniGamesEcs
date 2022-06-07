@@ -1,12 +1,12 @@
 ﻿using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using Poppingitems.Interfaces;
+using Core.Interfaces;
 using Poppingitems.Services;
 
 using UnityEngine;
 
-namespace Poppingitems.Systems
+namespace Core.Systems
 {
     sealed class TimerSystem<T> : IEcsRunSystem, IEcsInitSystem 
         where T : struct, ITimerComponent

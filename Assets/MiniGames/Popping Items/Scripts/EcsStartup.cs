@@ -4,15 +4,16 @@ using Leopotam.EcsLite.Di;
 using Poppingitems.Components.Events;
 using Poppingitems.Configs;
 using Poppingitems.Services;
-using Poppingitems.Systems;
+using Core.Systems;
 using Poppingitems.Views;
 
 using UnityEngine;
 
 using Utility;
 
-namespace Poppingitems
+namespace MiniGames.Poppingitems
 {
+    [AddComponentMenu(nameof(EcsStartup) + " in Popping Items")]
     sealed class EcsStartup : MonoBehaviour
     {
         [SerializeField] private PoppingItemsConfig _config;

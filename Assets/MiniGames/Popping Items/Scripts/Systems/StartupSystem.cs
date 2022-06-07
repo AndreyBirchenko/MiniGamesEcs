@@ -4,7 +4,7 @@ using Leopotam.EcsLite.Di;
 using Poppingitems.Configs;
 using Poppingitems.Services;
 
-namespace Poppingitems.Systems
+namespace Core.Systems
 {
     public class StartupSystem : IEcsInitSystem
     {

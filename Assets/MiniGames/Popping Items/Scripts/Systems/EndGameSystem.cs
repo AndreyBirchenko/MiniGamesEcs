@@ -4,7 +4,7 @@ using Leopotam.EcsLite.Di;
 using Poppingitems.Components.Events;
 using Poppingitems.Services;
 
-namespace Poppingitems.Systems
+namespace Core.Systems
 {
     public class EndGameSystem : IEcsRunSystem
     {

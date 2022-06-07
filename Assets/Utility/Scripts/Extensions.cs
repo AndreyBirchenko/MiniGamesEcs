@@ -18,6 +18,7 @@ namespace Utility
                 array[random] = temp;
             }
         }
+
         public static void Shuffle<T>(this List<T> array)
         {
             for (int i = 0; i < array.Count; i++)
@@ -28,17 +29,28 @@ namespace Utility
                 array[random] = temp;
             }
         }
+
         public static T GetRandomElement<T>(this IEnumerable<T> source)
         {
             return source.Shuffle().First();
         }
+
         public static IEnumerable<T> GetRandomElements<T>(this IEnumerable<T> source, int count)
         {
             return source.Shuffle().Take(count);
         }
+
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source)
         {
             return source.OrderBy(x => Guid.NewGuid());
+        }
+
+        public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            foreach (var i in source)
+            {
+                action.Invoke(i);
+            }
         }
     }
 }

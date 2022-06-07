@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42f3e3ec76c4beb8ba48d0b89260547, type: 3}
+  m_Name: Sorting Conveyor Config
+  m_EditorClassIdentifier: 
+  <Items>k__BackingField:
+  - {fileID: 6238571846087269163, guid: 3923637ed54e41ffb0c72ec0e9079f8b, type: 3}
+  - {fileID: 6238571846087269163, guid: 4cb3c04f7a03409ca3ca08e510964528, type: 3}
+  - {fileID: 3606130019582525791, guid: 3c87ecda4ea24a549c246cecce3d7358, type: 3}
+  - {fileID: 6238571846087269163, guid: dc4d35723e8643aa94975d747d60d2be, type: 3}
+  - {fileID: 3606130019582525791, guid: d9912de26bef439fbe12b9298f18a5b9, type: 3}
+  - {fileID: 6238571846087269163, guid: e30ec380cd38483ebdfbfea00b6a7c5a, type: 3}
+  - {fileID: 3606130019582525791, guid: 4e17c9006d8d43bd937443e3c3d0397d, type: 3}
+  - {fileID: 3606130019582525791, guid: 808aca890eaa43988a6df8f8171afe9b, type: 3}
+  - {fileID: 6238571846087269163, guid: c08e6127c5704aa289d89d5d5ea66a6d, type: 3}
+  <MoveSpeed>k__BackingField: 3
+  <FallSpeed>k__BackingField: 12
+  <DestroyDistance>k__BackingField: 26

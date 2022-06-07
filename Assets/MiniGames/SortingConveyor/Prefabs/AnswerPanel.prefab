@@ -31,6 +31,7 @@ Transform:
   - {fileID: 1204880469658607984}
   - {fileID: 1204880470537747994}
   - {fileID: 1204880469865397203}
+  - {fileID: 4030682036440380269}
   m_Father: {fileID: 1204880469731089314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -95,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204880469658607984}
   - component: {fileID: 1204880469658607987}
+  - component: {fileID: 7535810229715068566}
   m_Layer: 0
   m_Name: circle
   m_TagString: Untagged
@@ -167,6 +169,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7535810229715068566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204880469658607985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287c88b524d0467db4b944a955b62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ItemType>k__BackingField: 3
+  _initScale: {x: 0.60551095, y: 0.60551095, z: 0.60551095}
 --- !u!1 &1204880469731089315
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,13 +224,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1204880469865397203}
   - component: {fileID: 1204880469865397202}
+  - component: {fileID: 4793590062350258515}
   m_Layer: 0
   m_Name: square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1204880469865397203
 Transform:
   m_ObjectHideFlags: 0
@@ -280,6 +297,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4793590062350258515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204880469865397200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287c88b524d0467db4b944a955b62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ItemType>k__BackingField: 2
+  _initScale: {x: 0.7622784, y: 0.7622784, z: 0.7622784}
 --- !u!1 &1204880470430545466
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +320,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1204880470430545469}
+  - component: {fileID: 3922160777691283055}
+  - component: {fileID: 3444238262279243843}
   m_Layer: 0
   m_Name: AnswerPanel
   m_TagString: Untagged
@@ -311,6 +344,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &3922160777691283055
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204880470430545466}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.55, y: 3.05}
+  m_EdgeRadius: 0
+--- !u!114 &3444238262279243843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204880470430545466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a497d2fa3248838145a49d772201d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _answerViews:
+  - {fileID: 7535810229715068566}
+  - {fileID: 2352290198836284722}
+  - {fileID: 4793590062350258515}
+  - {fileID: 3566954264343568904}
+  _collider: {fileID: 3922160777691283055}
 --- !u!1 &1204880470537747995
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204880470537747994}
   - component: {fileID: 1204880470537747997}
+  - component: {fileID: 2352290198836284722}
   m_Layer: 0
   m_Name: triangle
   m_TagString: Untagged
@@ -393,3 +471,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2352290198836284722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204880470537747995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287c88b524d0467db4b944a955b62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ItemType>k__BackingField: 1
+  _initScale: {x: 3.8648598, y: 3.8648598, z: 3.8648598}
+--- !u!1 &6219292809681180162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4030682036440380269}
+  - component: {fileID: 3566954264343568904}
+  m_Layer: 0
+  m_Name: none
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4030682036440380269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219292809681180162}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1204880469069077389}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3566954264343568904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219292809681180162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287c88b524d0467db4b944a955b62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ItemType>k__BackingField: 0
+  _initScale: {x: 1, y: 1, z: 1}

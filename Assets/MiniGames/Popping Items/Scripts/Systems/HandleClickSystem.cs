@@ -7,7 +7,7 @@ using Poppingitems.Configs;
 using Poppingitems.Services;
 using Poppingitems.Views;
 
-namespace Poppingitems.Systems
+namespace Core.Systems
 {
     public class HandleClickSystem : IEcsRunSystem
     {

@@ -11,7 +11,7 @@ using UnityEngine;
 
 using Utility;
 
-namespace Poppingitems.Systems
+namespace Core.Systems
 {
     public class DestroySystem : IEcsRunSystem, IEcsInitSystem
     {
