@@ -29,8 +29,6 @@ namespace MiniGames.SortingConveyor
         private EcsSystems _systems;
         private EcsWorld _world;
         private EcsWorld _eventsWorld;
-        private ItemsFactory _itemsFactory;
-        private TaskService _taskService;
 
         void Start()
         {
@@ -38,8 +36,10 @@ namespace MiniGames.SortingConveyor
 
             _world = new EcsWorld();
             _eventsWorld = new EcsWorld();
-            _itemsFactory = new ItemsFactory(_world, _config.Items, _eventsWorld);
-            _taskService = new TaskService();
+            var itemsFactory = new ItemsFactory(_world, _config.Items, _eventsWorld);
+            var taskService = new TaskService();
+            var toolbarService = new ToolbarService();
+            var endGameService = new EndGameService();
 
             _systems = new EcsSystems(_world);
             _systems
@@ -59,8 +59,10 @@ namespace MiniGames.SortingConveyor
                     _config,
                     _camera,
                     _sceneData,
-                    _itemsFactory,
-                    _taskService
+                    itemsFactory,
+                    taskService,
+                    toolbarService,
+                    endGameService
                 )
                 .Init();
         }

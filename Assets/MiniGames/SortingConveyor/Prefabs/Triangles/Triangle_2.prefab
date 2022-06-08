@@ -968,7 +968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5291015121929285896, guid: 21927363f934d094f8aac96e9e9a3e2f, type: 3}
       propertyPath: <ItemType>k__BackingField
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21927363f934d094f8aac96e9e9a3e2f, type: 3}
