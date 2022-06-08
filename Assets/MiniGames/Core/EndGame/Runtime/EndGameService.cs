@@ -24,7 +24,7 @@ namespace Core.Services.Toolbar
 
         private void HandleRestartButton()
         {
-            SceneManager.LoadScene(Constants.PoppingItems);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         private void HandleQuitButton()
