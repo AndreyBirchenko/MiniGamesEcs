@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6cdf09875a4d49ae105f23523f7bed, type: 3}
   m_Name: Popping Items Config
   m_EditorClassIdentifier: 
+  <Scene>k__BackingField:
+    m_AssetGUID: d0be05909a0b60041a84a8fd4a8ee0e4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   <RightAnswersCount>k__BackingField: 5
   <BubbleVelocity>k__BackingField: {x: 0, y: 4}
   <DestroyOffset>k__BackingField: 6.5

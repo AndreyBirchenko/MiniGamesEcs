@@ -1,4 +1,6 @@
-﻿using MiniGames.SortingConveyor.Services;
+﻿using Client.Cofigs;
+
+using MiniGames.SortingConveyor.Services;
 using MiniGames.SortingConveyor.Views;
 
 using UnityEngine;
@@ -6,7 +8,7 @@ using UnityEngine;
 namespace MiniGames.SortingConveyor.Configs
 {
     [CreateAssetMenu(menuName = "MiniGames/SortingConveyorConfig", order = 0)]
-    public class SortingConveyorConfig : ScriptableObject
+    public class SortingConveyorConfig : BaseMiniGameConfig
     {
         [field: SerializeField] public int IterationsCount { get; private set; }
         [field: SerializeField] public ItemType ItemType { get; private set; }

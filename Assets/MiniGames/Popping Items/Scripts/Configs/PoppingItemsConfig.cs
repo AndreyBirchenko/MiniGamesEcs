@@ -1,11 +1,13 @@
-﻿using Core.Services.Toolbar.Views;
+﻿using Client.Cofigs;
+
+using Core.Services.Toolbar.Views;
 
 using UnityEngine;
 
 namespace Core.Services.Toolbar.Configs
 {
     [CreateAssetMenu(menuName = "MiniGames/PoppingItemsConfig", order = 0)]
-    public class PoppingItemsConfig : ScriptableObject
+    public class PoppingItemsConfig : BaseMiniGameConfig
     {
         [field: SerializeField] public int RightAnswersCount { get; private set; }
         [field: SerializeField] public Vector2 BubbleVelocity { get; private set; }

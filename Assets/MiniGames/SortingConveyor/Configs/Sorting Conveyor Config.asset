@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42f3e3ec76c4beb8ba48d0b89260547, type: 3}
   m_Name: Sorting Conveyor Config
   m_EditorClassIdentifier: 
+  <Scene>k__BackingField:
+    m_AssetGUID: 61c5ee5a10920e74db47ea8b48ae4624
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   <IterationsCount>k__BackingField: 6
   <ItemType>k__BackingField: 28
   <Items>k__BackingField:
