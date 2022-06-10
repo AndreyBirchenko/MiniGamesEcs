@@ -39,6 +39,8 @@ namespace Client.Systems
         {
             var sceneInstance = await scene.LoadSceneAsync(LoadSceneMode.Additive);
             SceneManager.SetActiveScene(sceneInstance.Scene);
+            
+            _menuView.Value.gameObject.SetActive(false);
         }
     }
 }
