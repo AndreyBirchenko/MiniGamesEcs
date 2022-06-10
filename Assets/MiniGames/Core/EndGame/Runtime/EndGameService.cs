@@ -1,7 +1,10 @@
-﻿using Core.Services.Toolbar.Views;
+﻿using System;
+
+using Core.Services.Toolbar.Views;
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
+using Object = UnityEngine.Object;
 
 namespace Core.Services.Toolbar
 {
@@ -13,8 +16,6 @@ namespace Core.Services.Toolbar
         {
             var endGamePrefab = Resources.Load<EndGameView>("EndGame/EndGameView");
             _endGameView = Object.Instantiate(endGamePrefab);
-            _endGameView.SubscribeRestartButton(HandleRestartButton);
-            _endGameView.SubscribeQuitButton(HandleQuitButton);
         }
 
         public void ShowEndGamePopup()
@@ -22,16 +23,19 @@ namespace Core.Services.Toolbar
             _endGameView.Show();
         }
 
-        private void HandleRestartButton()
+        public void HideEndGamePopup()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            _endGameView.Hide();
         }
 
-        private void HandleQuitButton()
+        public void SubscribeRestartButton(Action action)
         {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
+            _endGameView.SubscribeRestartButton(action.Invoke);
+        }
+
+        public void SubscribeQuitButton(Action action)
+        {
+            _endGameView.SubscribeQuitButton(action.Invoke);
         }
     }
 }

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Client;
+
+using Leopotam.EcsLite;
+
 using Random = UnityEngine.Random;
 
 namespace Utility
@@ -51,6 +55,12 @@ namespace Utility
             {
                 action.Invoke(i);
             }
+        }
+
+        public static EcsWorld GetGlobalWorld()
+        {
+            var worldProvider = UnityEngine.Object.FindObjectOfType<GlobalWorldProvider>();
+            return worldProvider.GetWorld();
         }
     }
 }

@@ -7,8 +7,11 @@ using MiniGames.SortingConveyor.Views;
 
 using Core.Services.Toolbar;
 
+using MiniGames.Core.EndGame.Runtime;
+using MiniGames.Core.Toolbar.Runtime;
 using MiniGames.SortingConveyor.Configs;
 
+using Extensions = Utility.Extensions;
 using TaskService = MiniGames.SortingConveyor.Services.TaskService;
 
 namespace MiniGames.SortingConveyor.Systems
@@ -19,17 +22,18 @@ namespace MiniGames.SortingConveyor.Systems
         private EcsCustomInject<TaskService> _taskService = default;
         private EcsCustomInject<SceneData> _sceneData = default;
         private EcsCustomInject<SortingConveyorConfig> _config = default;
-        private EcsCustomInject<EndGameService> _endGameService = default;
-        private EcsCustomInject<ToolbarService> _toolbarService = default;
 
         private AnswerPanelView _answerPanelView;
         private int _correctAnswers;
+        private EcsWorld _globalworld;
 
         public void Init(EcsSystems systems)
         {
+            _globalworld = Extensions.GetGlobalWorld();
+
             _answerPanelView = _sceneData.Value.AnswerPanelView;
-            _toolbarService.Value.Show(
-                _config.Value.IterationsCount, "Match the shapes by silhouette");
+            _globalworld.SendShowToolbarEvent
+                (_config.Value.IterationsCount, "Match the shapes by silhouette");
 
             GenerateTask();
         }
@@ -40,13 +44,13 @@ namespace MiniGames.SortingConveyor.Systems
             {
                 if (++_correctAnswers >= _config.Value.IterationsCount)
                 {
-                    FillToolbar();
-                    ShowEndGame();
+                    _globalworld.SendFillToolbarEvent();
+                    _globalworld.SendShowEndGamePopupEvent();
                     f_getTask.Pools.Inc1.Del(entity);
                     return;
                 }
 
-                FillToolbar();
+                _globalworld.SendFillToolbarEvent();
                 GenerateTask();
 
                 f_getTask.Pools.Inc1.Del(entity);
@@ -56,16 +60,6 @@ namespace MiniGames.SortingConveyor.Systems
         private void GenerateTask()
         {
             _answerPanelView.SetAnswerView(_taskService.Value.GetTask());
-        }
-
-        private void ShowEndGame()
-        {
-            _endGameService.Value.ShowEndGamePopup();
-        }
-
-        private void FillToolbar()
-        {
-            _toolbarService.Value.Fill();
         }
     }
 }

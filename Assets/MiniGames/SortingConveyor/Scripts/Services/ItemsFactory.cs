@@ -19,13 +19,19 @@ namespace MiniGames.SortingConveyor.Services
 
         private int _index = int.MaxValue;
 
-        public ItemsFactory(EcsWorld world, ItemView[] prefabs, EcsWorld eventsWorld)
+        public ItemsFactory(
+            EcsWorld world, 
+            ItemView[] prefabs, 
+            EcsWorld eventsWorld,
+            Transform startupTransform
+            )
         {
             _world = world;
             _prefabs = prefabs;
             _pool = new MonoPool<ItemView, ItemView>();
             _eventsWorld = eventsWorld;
             _rootObject = new GameObject("SpawnRoot");
+            _rootObject.transform.SetParent(startupTransform);
         }
 
         public ItemView Get()

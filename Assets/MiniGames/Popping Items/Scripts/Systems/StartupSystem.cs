@@ -4,6 +4,10 @@ using Leopotam.EcsLite.Di;
 using Core.Services.Toolbar.Configs;
 using Core.Services.Toolbar;
 
+using MiniGames.Core.Toolbar.Runtime;
+
+using Extensions = Utility.Extensions;
+
 namespace Core.Systems
 {
     public class StartupSystem : IEcsInitSystem
@@ -14,8 +18,10 @@ namespace Core.Systems
 
         public void Init(EcsSystems systems)
         {
+            var globalWorld = Extensions.GetGlobalWorld();
+
             _taskService.Value.GenerateGlobalTask();
-            _toolbar.Value.Show(_config.Value.RightAnswersCount,
+            globalWorld.SendShowToolbarEvent(_config.Value.RightAnswersCount,
                 $"Pop all bubbles with number {_taskService.Value.GlobalTask.Answer.ToString()}");
         }
     }

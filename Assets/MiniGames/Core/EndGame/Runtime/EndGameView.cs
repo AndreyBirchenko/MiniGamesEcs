@@ -28,6 +28,11 @@ namespace Core.Services.Toolbar.Views
                 .Append(_panel.transform.DOScale(initScale, animInterval / 2));
         }
 
+        public void Hide()
+        {
+            _panel.SetActive(false);
+        }
+
         public void SubscribeRestartButton(Action call)
         {
             _restartButton.onClick.AddListener(call.Invoke);

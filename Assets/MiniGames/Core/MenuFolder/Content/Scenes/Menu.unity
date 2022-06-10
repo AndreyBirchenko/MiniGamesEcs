@@ -376,6 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 504909783}
   - component: {fileID: 504909784}
+  - component: {fileID: 504909785}
   m_Layer: 0
   m_Name: Startup
   m_TagString: Untagged
@@ -411,6 +412,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuView: {fileID: 951707678}
   _menuCatalogConfig: {fileID: 11400000, guid: 53a20e0616e9e5243b2fb98f0202682b, type: 2}
+  _globalWorldProvider: {fileID: 504909785}
+--- !u!114 &504909785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504909782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d5052c2c304b3294a894f935e17b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &951707673
 GameObject:
   m_ObjectHideFlags: 0

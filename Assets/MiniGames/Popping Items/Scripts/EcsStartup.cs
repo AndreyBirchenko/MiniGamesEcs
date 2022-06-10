@@ -22,14 +22,9 @@ namespace MiniGames.Poppingitems
         private EcsSystems _systems;
         private readonly MonoPool<BubbleView, BubbleView> _objectPool = new MonoPool<BubbleView, BubbleView>();
         private readonly TaskService _taskService = new TaskService();
-        private ToolbarService _toolbarService;
-        private EndGameService _endGameService;
 
         void Start()
         {
-            _toolbarService = new ToolbarService();
-            _endGameService = new EndGameService();
-            
             _systems = new EcsSystems(new EcsWorld());
             _systems
                 .Add(new StartupSystem())
@@ -37,7 +32,6 @@ namespace MiniGames.Poppingitems
                 .Add(new SpawnSystem(transform))
                 .Add(new HandleClickSystem())
                 .Add(new DestroySystem())
-                .Add(new EndGameSystem())
                 .AddWorld(new EcsWorld(), Constants.Events)
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem(Constants.Events))
@@ -47,9 +41,8 @@ namespace MiniGames.Poppingitems
                     _config, 
                     _objectPool,
                     _camera,
-                    _taskService,
-                    _toolbarService,
-                    _endGameService)
+                    _taskService
+                    )
                 .Init();
         }
 
