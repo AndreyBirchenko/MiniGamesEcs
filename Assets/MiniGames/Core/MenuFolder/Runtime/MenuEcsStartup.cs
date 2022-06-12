@@ -19,6 +19,7 @@ namespace Client
         [SerializeField] private MenuView _menuView;
         [SerializeField] private MenuCatalogConfig _menuCatalogConfig;
         [SerializeField] private GlobalWorldProvider _globalWorldProvider;
+        [SerializeField] private FadeScreenView _fadeScreenView;
 
         private EcsSystems _systems;
 
@@ -43,7 +44,8 @@ namespace Client
                     _menuView,
                     _menuCatalogConfig,
                     toolbarService,
-                    endGameService
+                    endGameService,
+                    _fadeScreenView
                 )
                 .Init();
         }

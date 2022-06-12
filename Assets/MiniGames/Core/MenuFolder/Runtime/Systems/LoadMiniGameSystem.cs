@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
 using System.Threading;
 
 using Client.Cofigs;
@@ -12,7 +12,6 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 using Object = UnityEngine.Object;
@@ -25,6 +24,7 @@ namespace Client.Systems
         private EcsCustomInject<MenuView> _menuView = default;
         private EcsCustomInject<EndGameService> _endGameService = default;
         private EcsCustomInject<ToolbarService> _toolbarService = default;
+        private EcsCustomInject<FadeScreenView> _fadeScreen = default;
 
         private BaseMiniGameConfig _currentMiniGameConfig;
         private CancellationTokenSource _ctsOnDestroy = new CancellationTokenSource();
@@ -50,7 +50,7 @@ namespace Client.Systems
             {
                 var buttonView = Object.Instantiate(miniGameButtonPrefab, buttonsContainer);
                 buttonView.SetText(miniGameConfig.name.Replace("Config", string.Empty));
-                buttonView.SubscribeButton(() => LoadSceneAsync(miniGameConfig).Forget());
+                buttonView.SubscribeButton(() => HandleMiniGameButtonAsync(miniGameConfig).Forget());
             }
         }
 
@@ -63,7 +63,6 @@ namespace Client.Systems
 
         private async UniTask LoadSceneAsync(BaseMiniGameConfig miniGameConfig)
         {
-            //todo add loading screen
             _currentMiniGameConfig = miniGameConfig;
             var sceneInstance = await miniGameConfig.Scene
                 .LoadSceneAsync(LoadSceneMode.Additive)
@@ -84,23 +83,42 @@ namespace Client.Systems
                 _currentMiniGameConfig = null;
         }
 
+        private async UniTaskVoid HandleMiniGameButtonAsync(BaseMiniGameConfig miniGameConfig)
+        {
+            await _fadeScreen.Value.Fade(1);
+            await LoadSceneAsync(miniGameConfig);
+            await _fadeScreen.Value.Fade(0);
+        }
+
         private async UniTaskVoid HandleEndGameQuitButtonAsync()
         {
+            await _fadeScreen.Value.Fade(1);
+
             await UnloadCurrentSceneAsync();
             HideServicesViews();
+
+            await _fadeScreen.Value.Fade(0);
         }
 
         private async UniTaskVoid HandleEndGameRestartButtonAsync()
         {
+            await _fadeScreen.Value.Fade(1);
+
             await UnloadCurrentSceneAsync(false);
             HideServicesViews();
             await LoadSceneAsync(_currentMiniGameConfig);
+
+            await _fadeScreen.Value.Fade(0);
         }
 
         private async UniTaskVoid HandleToolbarBackButton()
         {
+            await _fadeScreen.Value.Fade(1);
+
             await UnloadCurrentSceneAsync();
             HideServicesViews();
+
+            await _fadeScreen.Value.Fade(0);
         }
 
         private void HideServicesViews()
