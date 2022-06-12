@@ -32,7 +32,7 @@ namespace Client.Systems
         public void Init(EcsSystems systems)
         {
             CreateMenuButtons();
-            SubscribeEndGameButtons();
+            SubscribeButtons();
         }
 
         public void Destroy(EcsSystems systems)
@@ -54,10 +54,11 @@ namespace Client.Systems
             }
         }
 
-        private void SubscribeEndGameButtons()
+        private void SubscribeButtons()
         {
             _endGameService.Value.SubscribeQuitButton(() => HandleEndGameQuitButtonAsync().Forget());
             _endGameService.Value.SubscribeRestartButton(() => HandleEndGameRestartButtonAsync().Forget());
+            _toolbarService.Value.SubscribeBackButton(() => HandleToolbarBackButton().Forget());
         }
 
         private async UniTask LoadSceneAsync(BaseMiniGameConfig miniGameConfig)
@@ -94,6 +95,12 @@ namespace Client.Systems
             await UnloadCurrentSceneAsync(false);
             HideServicesViews();
             await LoadSceneAsync(_currentMiniGameConfig);
+        }
+
+        private async UniTaskVoid HandleToolbarBackButton()
+        {
+            await UnloadCurrentSceneAsync();
+            HideServicesViews();
         }
 
         private void HideServicesViews()

@@ -1,8 +1,12 @@
-﻿using Core.Services.Toolbar.Views;
+﻿using System;
+
+using Core.Services.Toolbar.Views;
 
 using Cysharp.Threading.Tasks.Triggers;
 
 using UnityEngine;
+
+using Object = UnityEngine.Object;
 
 namespace Core.Services.Toolbar
 {
@@ -33,6 +37,11 @@ namespace Core.Services.Toolbar
         {
             Hide();
             _view.Reset();
+        }
+
+        public void SubscribeBackButton(Action action)
+        {
+            _view.BackButton.onClick.AddListener(action.Invoke);
         }
 
         private void Hide()
