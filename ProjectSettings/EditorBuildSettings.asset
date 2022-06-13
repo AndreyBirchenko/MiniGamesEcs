@@ -5,10 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Popping Items/Scenes/PoppingItems.unity
-    guid: d0be05909a0b60041a84a8fd4a8ee0e4
-  m_configObjects: {}
+    path: Assets/MiniGames/Core/MenuFolder/Content/Scenes/Menu.unity
+    guid: e807f5b070624b638cf1f21a21e24479
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: d3b1be7b7392e324182c0db9ae2106ca, type: 2}
