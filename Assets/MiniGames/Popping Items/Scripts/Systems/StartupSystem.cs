@@ -16,7 +16,6 @@ namespace PoppingItems.Systems
     {
         private readonly EcsCustomInject<PoppingItemsConfig> _config = default;
         private readonly EcsCustomInject<TaskService> _taskService = default;
-        private readonly EcsCustomInject<ToolbarService> _toolbar = default;
 
         public void Init(EcsSystems systems)
         {

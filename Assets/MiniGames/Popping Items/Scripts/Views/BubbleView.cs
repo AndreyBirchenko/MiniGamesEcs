@@ -19,8 +19,6 @@ namespace Core.Services.Toolbar.Views
         [SerializeField] private Collider2D _collider2D;
         [SerializeField] private TextMeshPro _textMeshPro;
         
-        [field: SerializeField] public Rigidbody2D Rigidbody { get; private set; }
-
         public EcsPackedEntityWithWorld PackedEntityWithWorld { get; set; }
         public EcsWorld EcsEventWorld { get; set; }
 

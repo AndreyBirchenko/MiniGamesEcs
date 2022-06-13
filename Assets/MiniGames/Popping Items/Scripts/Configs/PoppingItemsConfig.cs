@@ -10,11 +10,9 @@ namespace Core.Services.Toolbar.Configs
     public class PoppingItemsConfig : BaseMiniGameConfig
     {
         [field: SerializeField] public int RightAnswersCount { get; private set; }
-        [field: SerializeField] public Vector2 BubbleVelocity { get; private set; }
+        [field: SerializeField] public float BubbleSpeed { get; private set; }
         [field: SerializeField] public float DestroyOffset { get; private set; }
         [field: SerializeField] public BubbleView BubbleView { get; private set; }
-        [field: SerializeField] public ToolbarView ToolbarView { get; private set; }
-        [field: SerializeField] public EndGameView EndGameView { get; private set; }
         [field: SerializeField] public Vector3[] SpawnPoints { get; private set; }
     }
 }

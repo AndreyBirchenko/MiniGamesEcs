@@ -93,7 +93,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4950582661750081852}
   - component: {fileID: 7421118032521538712}
-  - component: {fileID: 2393987816120385389}
   - component: {fileID: 7577914693968819628}
   m_Layer: 0
   m_Name: ItemView
@@ -134,28 +133,7 @@ MonoBehaviour:
   _particleSystem: {fileID: 4950582661908529361}
   _collider2D: {fileID: 7577914693968819628}
   _textMeshPro: {fileID: 6388392760016258803}
-  <Rigidbody>k__BackingField: {fileID: 2393987816120385389}
---- !u!50 &2393987816120385389
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4950582661750081853}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  <Rigidbody>k__BackingField: {fileID: 0}
 --- !u!58 &7577914693968819628
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -33,6 +33,7 @@ namespace MiniGames.Poppingitems
                 .Add(new StartupSystem())
                 .Add(new TimerSystem<SpawnEvent>())
                 .Add(new SpawnSystem(transform))
+                .Add(new MovementSystem())
                 .Add(new HandleClickSystem())
                 .Add(new DestroySystem())
                 .AddWorld(new EcsWorld(), Constants.Events)

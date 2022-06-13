@@ -51,7 +51,6 @@ namespace PoppingItems.Systems
 
                 bubbleView.Initialize(randomTask.Answer.ToString());
                 bubbleView.transform.position = GetUniquePosition();
-                bubbleView.Rigidbody.velocity = _config.Value.BubbleVelocity;
                 bubbleView.PackedEntityWithWorld = _defaultWorld.Value.PackEntityWithWorld(bubbleEntity);
 
                 var bubblesPool = _defaultWorld.Value.GetPool<BubbleComponent>();

@@ -18,11 +18,9 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   <RightAnswersCount>k__BackingField: 5
-  <BubbleVelocity>k__BackingField: {x: 0, y: 4}
+  <BubbleSpeed>k__BackingField: 3
   <DestroyOffset>k__BackingField: 6.5
   <BubbleView>k__BackingField: {fileID: 7421118032521538712, guid: ac2616e8e2226a94ba15b7dc73a8a548, type: 3}
-  <ToolbarView>k__BackingField: {fileID: 1457833746881804663, guid: ad3bb76ab8c3d214c9ab376eab962f6d, type: 3}
-  <EndGameView>k__BackingField: {fileID: 4682082271574729642, guid: f30657e6ac5d7694794b5578ae1b2883, type: 3}
   <SpawnPoints>k__BackingField:
   - {x: -7.37, y: -6.49, z: 0}
   - {x: -1.55, y: -6.49, z: 0}
