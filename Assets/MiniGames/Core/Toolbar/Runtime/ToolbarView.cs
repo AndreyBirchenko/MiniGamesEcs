@@ -17,7 +17,7 @@ namespace Core.Services.Toolbar.Views
 
         public Button BackButton => _backButton;
 
-        private float _deltaDistance = 749.5f;
+        private float _deltaDistance = 2532;
         private float _stepDistance;
         private Vector3 _initPosition;
 
