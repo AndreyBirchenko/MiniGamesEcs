@@ -1,37 +1,34 @@
-﻿using Client;
+﻿using Core.Services.Toolbar.Components.Events;
+using Core.Services.Toolbar.Configs;
+using Core.Services.Toolbar.Views;
 
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using Core.Services.Toolbar.Components;
-using Core.Services.Toolbar.Components.Events;
-using Core.Services.Toolbar.Configs;
-using Core.Services.Toolbar;
-using Core.Services.Toolbar.Views;
-
 using MiniGames.Core.EndGame.Runtime;
 using MiniGames.Core.Toolbar.Runtime;
 
-using UnityEngine;
+using PoppingItems.Components;
+using PoppingItems.Services;
 
 using Extensions = Utility.Extensions;
 
-namespace Core.Systems
+namespace PoppingItems.Systems
 {
     public class HandleClickSystem : IEcsRunSystem, IEcsInitSystem
     {
         private readonly EcsFilterInject<Inc<ClickEvent<BubbleView>>> _clickFilter = Constants.Events;
-        private readonly EcsCustomInject<TaskService> _taskService = default;
         private readonly EcsCustomInject<PoppingItemsConfig> _config;
+        private readonly EcsCustomInject<TaskService> _taskService = default;
+        private EcsWorld _globalWorld;
 
         private int _rightAnswersCounter;
-        private EcsWorld _globalWorld;
 
         public void Init(EcsSystems systems)
         {
             _globalWorld = Extensions.GetGlobalWorld();
         }
-        
+
         public void Run(EcsSystems systems)
         {
             foreach (var entity in _clickFilter.Value)
@@ -54,10 +51,7 @@ namespace Core.Systems
                     _rightAnswersCounter++;
                 }
 
-                if (_rightAnswersCounter >= _config.Value.RightAnswersCount)
-                {
-                    _globalWorld.SendShowEndGamePopupEvent();
-                }
+                if (_rightAnswersCounter >= _config.Value.RightAnswersCount) _globalWorld.SendShowEndGamePopupEvent();
             }
         }
     }

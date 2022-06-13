@@ -1,14 +1,15 @@
-﻿using Leopotam.EcsLite;
+﻿using Core.Interfaces;
+
+using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using Core.Interfaces;
-using Core.Services.Toolbar;
+using PoppingItems.Services;
 
 using UnityEngine;
 
 namespace Core.Systems
 {
-    sealed class TimerSystem<T> : IEcsRunSystem, IEcsInitSystem 
+    internal sealed class TimerSystem<T> : IEcsRunSystem, IEcsInitSystem
         where T : struct, ITimerComponent
     {
         private readonly EcsWorldInject _eventsworld = Constants.Events;
@@ -26,10 +27,10 @@ namespace Core.Systems
             _time -= Time.deltaTime;
 
             if (!(_time <= 0)) return;
-            
+
             var entity = _eventsworld.Value.NewEntity();
             _pool.Value.Add(entity);
-                
+
             _time = _timerComponent.Time;
         }
     }

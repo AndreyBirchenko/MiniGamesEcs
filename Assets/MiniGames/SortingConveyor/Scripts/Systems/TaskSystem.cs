@@ -1,15 +1,14 @@
 ﻿using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
+using MiniGames.Core.EndGame.Runtime;
+using MiniGames.Core.Toolbar.Runtime;
 using MiniGames.SortingConveyor.Components.Events;
+using MiniGames.SortingConveyor.Configs;
 using MiniGames.SortingConveyor.Services;
 using MiniGames.SortingConveyor.Views;
 
-using Core.Services.Toolbar;
-
-using MiniGames.Core.EndGame.Runtime;
-using MiniGames.Core.Toolbar.Runtime;
-using MiniGames.SortingConveyor.Configs;
+using PoppingItems.Services;
 
 using Extensions = Utility.Extensions;
 using TaskService = MiniGames.SortingConveyor.Services.TaskService;
@@ -18,14 +17,13 @@ namespace MiniGames.SortingConveyor.Systems
 {
     public class TaskSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private EcsFilterInject<Inc<GetTaskEvent>> f_getTask = Constants.Events;
-        private EcsCustomInject<TaskService> _taskService = default;
-        private EcsCustomInject<SceneData> _sceneData = default;
-        private EcsCustomInject<SortingConveyorConfig> _config = default;
-
         private AnswerPanelView _answerPanelView;
+        private readonly EcsCustomInject<SortingConveyorConfig> _config = default;
         private int _correctAnswers;
         private EcsWorld _globalworld;
+        private readonly EcsCustomInject<SceneData> _sceneData = default;
+        private readonly EcsCustomInject<TaskService> _taskService = default;
+        private readonly EcsFilterInject<Inc<GetTaskEvent>> f_getTask = Constants.Events;
 
         public void Init(EcsSystems systems)
         {

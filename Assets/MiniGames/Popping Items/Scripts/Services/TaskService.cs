@@ -1,13 +1,13 @@
-﻿using Core.Services.Toolbar.Components;
+﻿using PoppingItems.Components;
 
 using UnityEngine;
 
-namespace Core.Services.Toolbar
+namespace PoppingItems.Services
 {
     public class TaskService
     {
+        private readonly int _rightTaskSpawnChance = 50;
         public TaskComponent GlobalTask { get; private set; }
-        private int _rightTaskSpawnChance = 50;
 
         public void GenerateGlobalTask()
         {

@@ -1,11 +1,14 @@
-using Leopotam.EcsLite;
-using Leopotam.EcsLite.Di;
-
 using Core.Services.Toolbar.Components.Events;
 using Core.Services.Toolbar.Configs;
-using Core.Services.Toolbar;
-using Core.Systems;
 using Core.Services.Toolbar.Views;
+using Core.Systems;
+
+using Leopotam.EcsLite;
+using Leopotam.EcsLite.Di;
+using Leopotam.EcsLite.UnityEditor;
+
+using PoppingItems.Services;
+using PoppingItems.Systems;
 
 using UnityEngine;
 
@@ -14,16 +17,16 @@ using Utility;
 namespace MiniGames.Poppingitems
 {
     [AddComponentMenu(nameof(EcsStartup) + " in Popping Items")]
-    sealed class EcsStartup : MonoBehaviour
+    internal sealed class EcsStartup : MonoBehaviour
     {
         [SerializeField] private PoppingItemsConfig _config;
         [SerializeField] private Camera _camera;
-
-        private EcsSystems _systems;
         private readonly MonoPool<BubbleView, BubbleView> _objectPool = new MonoPool<BubbleView, BubbleView>();
         private readonly TaskService _taskService = new TaskService();
 
-        void Start()
+        private EcsSystems _systems;
+
+        private void Start()
         {
             _systems = new EcsSystems(new EcsWorld());
             _systems
@@ -34,24 +37,24 @@ namespace MiniGames.Poppingitems
                 .Add(new DestroySystem())
                 .AddWorld(new EcsWorld(), Constants.Events)
 #if UNITY_EDITOR
-                .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem(Constants.Events))
-                .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
+                .Add(new EcsWorldDebugSystem(Constants.Events))
+                .Add(new EcsWorldDebugSystem())
 #endif
                 .Inject(
-                    _config, 
+                    _config,
                     _objectPool,
                     _camera,
                     _taskService
-                    )
+                )
                 .Init();
         }
 
-        void Update()
+        private void Update()
         {
             _systems?.Run();
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             if (_systems != null)
             {

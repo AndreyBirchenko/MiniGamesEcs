@@ -1,6 +1,6 @@
 ﻿using Core.Services.Toolbar.Views;
 
-namespace Core.Services.Toolbar.Components
+namespace PoppingItems.Components
 {
     public struct BubbleComponent
     {

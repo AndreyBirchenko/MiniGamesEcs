@@ -6,7 +6,7 @@ using MiniGames.SortingConveyor.Components.Events;
 using MiniGames.SortingConveyor.Services;
 using MiniGames.SortingConveyor.Views;
 
-using Core.Services.Toolbar;
+using PoppingItems.Services;
 
 using TaskService = MiniGames.SortingConveyor.Services.TaskService;
 
@@ -14,14 +14,13 @@ namespace MiniGames.SortingConveyor.Systems
 {
     public class CheckingAnswerSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private EcsFilterInject<Inc<CheckAnswerEvent>> f_checkAnswer = Constants.Events;
-        private EcsPoolInject<CheckAnswerEvent> p_checkAnswer;
-        private EcsPoolInject<VerticalMovementComponent> p_verticalMovement;
-        private EcsCustomInject<SceneData> _sceneData = default;
-        private EcsCustomInject<TaskService> _taskService = default;
-
         private AnswerPanelView _answerPanel;
         private EcsWorld _eventsWorld;
+        private readonly EcsCustomInject<SceneData> _sceneData = default;
+        private readonly EcsCustomInject<TaskService> _taskService = default;
+        private readonly EcsFilterInject<Inc<CheckAnswerEvent>> f_checkAnswer = Constants.Events;
+        private EcsPoolInject<CheckAnswerEvent> p_checkAnswer;
+        private EcsPoolInject<VerticalMovementComponent> p_verticalMovement;
 
         public void Init(EcsSystems systems)
         {
@@ -39,14 +38,10 @@ namespace MiniGames.SortingConveyor.Systems
                 var itemView = c_checkAnswer.View;
 
                 if (AnswerIsCorrect(itemView))
-                {
                     itemView.PlayCorrectAnimation
                         (_answerPanel.transform.position, SendTaskSystemEvent);
-                }
                 else
-                {
                     AddVerticalMovementComponent(itemView);
-                }
 
                 p_checkAnswer.Del(entity);
             }

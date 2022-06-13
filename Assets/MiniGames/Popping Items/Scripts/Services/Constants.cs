@@ -1,4 +1,4 @@
-﻿namespace Core.Services.Toolbar
+﻿namespace PoppingItems.Services
 {
     public static class Constants
     {

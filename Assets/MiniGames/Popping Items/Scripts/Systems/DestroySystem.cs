@@ -1,25 +1,26 @@
-﻿using Leopotam.EcsLite;
+﻿using Core.Services.Toolbar.Components.Events;
+using Core.Services.Toolbar.Configs;
+using Core.Services.Toolbar.Views;
+
+using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using Core.Services.Toolbar.Components;
-using Core.Services.Toolbar.Components.Events;
-using Core.Services.Toolbar.Configs;
-using Core.Services.Toolbar;
-using Core.Services.Toolbar.Views;
+using PoppingItems.Components;
+using PoppingItems.Services;
 
 using UnityEngine;
 
 using Utility;
 
-namespace Core.Systems
+namespace PoppingItems.Systems
 {
     public class DestroySystem : IEcsRunSystem, IEcsInitSystem
     {
-        private readonly EcsFilterInject<Inc<BubbleComponent>> _filter = default;
-        private readonly EcsFilterInject<Inc<DestroyEvent>> _destroyFilter = Constants.Events;
-        private readonly EcsCustomInject<PoppingItemsConfig> _config = default;
-        private readonly EcsCustomInject<MonoPool<BubbleView, BubbleView>> _objectPool = default;
         private readonly EcsCustomInject<Camera> _camera = default;
+        private readonly EcsCustomInject<PoppingItemsConfig> _config = default;
+        private readonly EcsFilterInject<Inc<DestroyEvent>> _destroyFilter = Constants.Events;
+        private readonly EcsFilterInject<Inc<BubbleComponent>> _filter = default;
+        private readonly EcsCustomInject<MonoPool<BubbleView, BubbleView>> _objectPool = default;
         private Vector3 _screenCentre;
 
         public void Init(EcsSystems systems)
@@ -47,7 +48,7 @@ namespace Core.Systems
             {
                 var pool = _destroyFilter.Pools.Inc1;
                 ref var destroyEvent = ref pool.Get(entity);
-                
+
                 _objectPool.Value.Return(destroyEvent.BubbleView);
                 pool.Del(entity);
             }

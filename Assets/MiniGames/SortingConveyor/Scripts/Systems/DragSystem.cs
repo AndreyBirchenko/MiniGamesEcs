@@ -7,7 +7,7 @@ using MiniGames.SortingConveyor.Components;
 using MiniGames.SortingConveyor.Components.Events;
 using MiniGames.SortingConveyor.Views;
 
-using Core.Services.Toolbar;
+using PoppingItems.Services;
 
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,14 +16,14 @@ namespace MiniGames.SortingConveyor.Systems
 {
     public class DragSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private EcsFilterInject<Inc<BeginDragEvent<ItemView>>> _beginDragFilter = Constants.Events;
-        private EcsFilterInject<Inc<DragEvent<ItemView>>> _dragFilter = Constants.Events;
-        private EcsFilterInject<Inc<EndDragEvent<ItemView>>> _endDragFilter = Constants.Events;
-        private EcsPoolInject<CheckAnswerEvent> _checkAnswerPool = Constants.Events;
+        private readonly EcsFilterInject<Inc<BeginDragEvent<ItemView>>> _beginDragFilter = Constants.Events;
+        private readonly EcsCustomInject<Camera> _camera = default;
+        private readonly EcsPoolInject<CheckAnswerEvent> _checkAnswerPool = Constants.Events;
+        private readonly EcsFilterInject<Inc<DragEvent<ItemView>>> _dragFilter = Constants.Events;
+        private readonly float _dragSpeed = 15f;
+        private readonly EcsFilterInject<Inc<EndDragEvent<ItemView>>> _endDragFilter = Constants.Events;
 
         private EcsWorld _evensWorld;
-        private EcsCustomInject<Camera> _camera = default;
-        private float _dragSpeed = 15f;
         private Dictionary<PointerEventData, ItemView> _itemsInDrag;
 
         public void Init(EcsSystems systems)
@@ -52,10 +52,7 @@ namespace MiniGames.SortingConveyor.Systems
                 var itemView = c_beginDrag.View;
                 var pointerData = c_beginDrag.PointerEventData;
 
-                if (_itemsInDrag.ContainsKey(pointerData) == false)
-                {
-                    _itemsInDrag.Add(pointerData, itemView);
-                }
+                if (_itemsInDrag.ContainsKey(pointerData) == false) _itemsInDrag.Add(pointerData, itemView);
 
                 p_beginDrag.Del(entity);
             }
@@ -86,7 +83,7 @@ namespace MiniGames.SortingConveyor.Systems
                 var itemView = component.View;
 
                 _itemsInDrag.Remove(pointerData);
-                
+
                 SendCheckAnswerEvent(itemView);
 
                 _endDragFilter.Pools.Inc1.Del(entity);

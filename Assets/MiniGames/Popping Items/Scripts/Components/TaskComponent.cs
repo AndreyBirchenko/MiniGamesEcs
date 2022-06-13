@@ -1,4 +1,4 @@
-﻿namespace Core.Services.Toolbar.Components
+﻿namespace PoppingItems.Components
 {
     public struct TaskComponent
     {
