@@ -13,12 +13,10 @@ namespace MiniGames.SortingConveyor.Systems
 {
     public class SpawnSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private EcsCustomInject<SortingConveyorConfig> _config = default;
         private readonly EcsCustomInject<ItemsFactory> _itemsFactory = default;
         private readonly EcsCustomInject<SceneData> _sceneData = default;
         private readonly EcsFilterInject<Inc<SpawnEvent>> _spawnFilter = Constants.Events;
         private Vector3 _spawnPosition;
-        private EcsWorldInject _world = default;
 
         public void Init(EcsSystems systems)
         {
