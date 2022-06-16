@@ -2,7 +2,7 @@
 
 using Random = UnityEngine.Random;
 
-namespace MiniGames.SortingConveyor.Services
+namespace Core.Services
 {
     public class TaskService
     {

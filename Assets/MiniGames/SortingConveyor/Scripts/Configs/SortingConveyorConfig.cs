@@ -1,11 +1,11 @@
 ﻿using Client.Cofigs;
 
-using MiniGames.SortingConveyor.Services;
-using MiniGames.SortingConveyor.Views;
+using Core.Services;
+using Core.Views;
 
 using UnityEngine;
 
-namespace MiniGames.SortingConveyor.Configs
+namespace Core.Configs
 {
     [CreateAssetMenu(menuName = "MiniGames/SortingConveyorConfig", order = 0)]
     public class SortingConveyorConfig : BaseMiniGameConfig

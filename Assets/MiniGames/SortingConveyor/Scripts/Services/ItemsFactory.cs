@@ -1,13 +1,13 @@
-﻿using Leopotam.EcsLite;
+﻿using Core.Components;
+using Core.Views;
 
-using MiniGames.SortingConveyor.Components;
-using MiniGames.SortingConveyor.Views;
+using Leopotam.EcsLite;
 
 using UnityEngine;
 
 using Utility;
 
-namespace MiniGames.SortingConveyor.Services
+namespace Core.Services
 {
     public class ItemsFactory
     {

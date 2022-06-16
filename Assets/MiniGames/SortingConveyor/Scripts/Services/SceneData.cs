@@ -1,8 +1,8 @@
-﻿using MiniGames.SortingConveyor.Views;
+﻿using Core.Views;
 
 using UnityEngine;
 
-namespace MiniGames.SortingConveyor.Services
+namespace Core.Services
 {
     public class SceneData : MonoBehaviour
     {

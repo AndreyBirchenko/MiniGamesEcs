@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 
+using Core.Components;
+using Core.Components.Events;
+using Core.Views;
+
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
-
-using MiniGames.SortingConveyor.Components;
-using MiniGames.SortingConveyor.Components.Events;
-using MiniGames.SortingConveyor.Views;
 
 using PoppingItems.Services;
 
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MiniGames.SortingConveyor.Systems
+namespace Core.Systems
 {
     public class DragSystem : IEcsInitSystem, IEcsRunSystem
     {

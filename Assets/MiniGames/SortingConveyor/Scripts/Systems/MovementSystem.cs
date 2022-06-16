@@ -1,12 +1,12 @@
-﻿using Leopotam.EcsLite;
-using Leopotam.EcsLite.Di;
+﻿using Core.Components;
+using Core.Configs;
 
-using MiniGames.SortingConveyor.Components;
-using MiniGames.SortingConveyor.Configs;
+using Leopotam.EcsLite;
+using Leopotam.EcsLite.Di;
 
 using UnityEngine;
 
-namespace MiniGames.SortingConveyor.Systems
+namespace SortingConveyor.Systems
 {
     public class MovementSystem : IEcsRunSystem
     {

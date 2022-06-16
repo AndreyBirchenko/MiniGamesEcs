@@ -1,4 +1,4 @@
-﻿namespace MiniGames.SortingConveyor.Components.Events
+﻿namespace Core.Components.Events
 {
     public struct GetTaskEvent
     {

@@ -1,8 +1,8 @@
-﻿using MiniGames.SortingConveyor.Views;
+﻿using Core.Views;
 
 using UnityEngine;
 
-namespace MiniGames.SortingConveyor.Components
+namespace Core.Components
 {
     public struct HorizontalMovementComponent
     {

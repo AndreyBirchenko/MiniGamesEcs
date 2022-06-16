@@ -1,6 +1,6 @@
-﻿using MiniGames.SortingConveyor.Views;
+﻿using Core.Views;
 
-namespace MiniGames.SortingConveyor.Components
+namespace Core.Components
 {
     public struct ItemComponent
     {

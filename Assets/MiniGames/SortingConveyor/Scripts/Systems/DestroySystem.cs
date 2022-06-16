@@ -1,13 +1,13 @@
-﻿using Leopotam.EcsLite;
-using Leopotam.EcsLite.Di;
+﻿using Core.Components;
+using Core.Configs;
+using Core.Services;
 
-using MiniGames.SortingConveyor.Components;
-using MiniGames.SortingConveyor.Configs;
-using MiniGames.SortingConveyor.Services;
+using Leopotam.EcsLite;
+using Leopotam.EcsLite.Di;
 
 using UnityEngine;
 
-namespace MiniGames.SortingConveyor.Systems
+namespace SortingConveyor.Systems
 {
     public class DestroySystem : IEcsRunSystem
     {

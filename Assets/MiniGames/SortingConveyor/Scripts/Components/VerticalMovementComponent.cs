@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MiniGames.SortingConveyor.Components
+namespace Core.Components
 {
     public struct VerticalMovementComponent
     {

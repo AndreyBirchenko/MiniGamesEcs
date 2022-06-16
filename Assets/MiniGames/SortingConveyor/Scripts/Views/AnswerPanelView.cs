@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 
-using DG.Tweening;
+using Core.Services;
 
-using MiniGames.SortingConveyor.Services;
+using DG.Tweening;
 
 using UnityEngine;
 
-namespace MiniGames.SortingConveyor.Views
+namespace Core.Views
 {
     [RequireComponent(typeof(Collider2D))]
     public class AnswerPanelView : MonoBehaviour

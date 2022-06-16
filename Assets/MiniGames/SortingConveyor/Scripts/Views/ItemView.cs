@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Reflection;
 
+using Core.Components.Events;
+using Core.Services;
+
 using DG.Tweening;
 
 using Leopotam.EcsLite;
-
-using MiniGames.SortingConveyor.Components.Events;
-using MiniGames.SortingConveyor.Services;
 
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 
-namespace MiniGames.SortingConveyor.Views
+namespace Core.Views
 {
     public class ItemView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {

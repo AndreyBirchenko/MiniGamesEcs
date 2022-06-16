@@ -1,15 +1,15 @@
 ﻿using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using MiniGames.SortingConveyor.Components.Events;
-using MiniGames.SortingConveyor.Configs;
-using MiniGames.SortingConveyor.Services;
+using Core.Configs;
+using Core.Components.Events;
+using Core.Services;
 
 using PoppingItems.Services;
 
 using UnityEngine;
 
-namespace MiniGames.SortingConveyor.Systems
+namespace SortingConveyor.Systems
 {
     public class SpawnSystem : IEcsInitSystem, IEcsRunSystem
     {

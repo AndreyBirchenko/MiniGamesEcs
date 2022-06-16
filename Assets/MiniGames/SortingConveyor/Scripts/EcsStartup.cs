@@ -1,21 +1,21 @@
+using Core.Components.Events;
+using Core.Configs;
+using Core.Services;
 using Core.Systems;
 
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.UnityEditor;
 
-using MiniGames.SortingConveyor.Components.Events;
-using MiniGames.SortingConveyor.Configs;
-using MiniGames.SortingConveyor.Services;
-using MiniGames.SortingConveyor.Systems;
-
 using PoppingItems.Services;
+
+using SortingConveyor.Systems;
 
 using UnityEngine;
 
-using TaskService = MiniGames.SortingConveyor.Services.TaskService;
+using TaskService = Core.Services.TaskService;
 
-namespace MiniGames.SortingConveyor
+namespace Core
 {
     [AddComponentMenu(nameof(EcsStartup) + " in Sorting Conveyor")]
     internal sealed class EcsStartup : MonoBehaviour

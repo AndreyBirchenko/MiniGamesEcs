@@ -1,10 +1,10 @@
 ﻿using System;
 
-using MiniGames.SortingConveyor.Services;
+using Core.Services;
 
 using UnityEngine;
 
-namespace MiniGames.SortingConveyor.Views
+namespace Core.Views
 {
     public class AnswerView : MonoBehaviour
     {

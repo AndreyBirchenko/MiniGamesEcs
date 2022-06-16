@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MiniGames.SortingConveyor.Components.Events
+namespace Core.Components.Events
 {
     public struct EndDragEvent<T> where T : MonoBehaviour
     {

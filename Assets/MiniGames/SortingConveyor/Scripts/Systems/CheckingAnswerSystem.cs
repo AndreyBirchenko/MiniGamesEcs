@@ -1,23 +1,23 @@
-﻿using Leopotam.EcsLite;
-using Leopotam.EcsLite.Di;
+﻿using Core.Components;
+using Core.Components.Events;
+using Core.Services;
+using Core.Views;
 
-using MiniGames.SortingConveyor.Components;
-using MiniGames.SortingConveyor.Components.Events;
-using MiniGames.SortingConveyor.Services;
-using MiniGames.SortingConveyor.Views;
+using Leopotam.EcsLite;
+using Leopotam.EcsLite.Di;
 
 using PoppingItems.Services;
 
-using TaskService = MiniGames.SortingConveyor.Services.TaskService;
+using TaskService = Core.Services.TaskService;
 
-namespace MiniGames.SortingConveyor.Systems
+namespace Core.Systems
 {
     public class CheckingAnswerSystem : IEcsInitSystem, IEcsRunSystem
     {
         private AnswerPanelView _answerPanel;
         private EcsWorld _eventsWorld;
         private readonly EcsCustomInject<SceneData> _sceneData = default;
-        private readonly EcsCustomInject<TaskService> _taskService = default;
+        private readonly EcsCustomInject<Services.TaskService> _taskService = default;
         private readonly EcsFilterInject<Inc<CheckAnswerEvent>> f_checkAnswer = Constants.Events;
         private EcsPoolInject<CheckAnswerEvent> p_checkAnswer;
         private EcsPoolInject<VerticalMovementComponent> p_verticalMovement;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MiniGames.SortingConveyor.Services
+namespace Core.Services
 {
     [Flags]
     public enum ItemType

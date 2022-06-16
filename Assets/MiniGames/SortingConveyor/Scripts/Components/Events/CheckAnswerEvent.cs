@@ -1,6 +1,6 @@
-﻿using MiniGames.SortingConveyor.Views;
+﻿using Core.Views;
 
-namespace MiniGames.SortingConveyor.Components.Events
+namespace Core.Components.Events
 {
     public struct CheckAnswerEvent
     {
