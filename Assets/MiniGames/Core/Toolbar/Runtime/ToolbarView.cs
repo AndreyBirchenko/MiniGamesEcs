@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using DG.Tweening;
 
@@ -18,14 +19,16 @@ namespace Core.Services.Toolbar.Views
         public Button BackButton => _backButton;
 
         private float _deltaDistance = 2532;
-        private float _stepDistance;
+        private int _stepIndex;
         private Vector3 _initPosition;
+        private List<Vector3> _positions;
 
         private Sequence _sequence;
 
         private void Awake()
         {
             _initPosition = _slider.transform.position;
+            _positions = new List<Vector3>();
         }
 
         public void SetTaskText(string text)
@@ -35,15 +38,25 @@ namespace Core.Services.Toolbar.Views
 
         public void SetMaxAnswerCount(int maxStepsCount)
         {
-            _stepDistance = _deltaDistance / maxStepsCount;
+            var stepDistance = _deltaDistance / maxStepsCount;
+            var position = new Vector3(_slider.transform.position.x, _slider.transform.position.y, 0);
+                
+            for (int i = 0; i < maxStepsCount; i++)
+            {
+                position = new Vector3(position.x + stepDistance, position.y, 0);
+                _positions.Add(position);
+            }
         }
 
         public void Fill()
         {
+            if(_stepIndex >= _positions.Count)
+                return;
+            
             _sequence = GetSequence();
             _sequence
                 .Append(_slider.transform
-                    .DOMoveX(_slider.transform.position.x + _stepDistance, 0.4f));
+                    .DOMoveX(_positions[_stepIndex++].x, 0.4f));
         }
 
         public void Reset()

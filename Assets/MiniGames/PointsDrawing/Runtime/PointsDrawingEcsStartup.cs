@@ -1,3 +1,5 @@
+using DG.Tweening;
+
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.UnityEditor;
@@ -22,6 +24,7 @@ namespace MiniGames.PointsDrawing
 
         private void Start()
         {
+            DOTween.SetTweensCapacity(200, 125);
             var iterationRepository = new IterationRepository();
 
             _systems = new EcsSystems(new EcsWorld());

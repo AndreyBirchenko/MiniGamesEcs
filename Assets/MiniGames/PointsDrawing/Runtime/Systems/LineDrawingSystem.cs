@@ -7,6 +7,7 @@ using Cysharp.Threading.Tasks;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
+using MiniGames.Core.Toolbar.Runtime;
 using MiniGames.PointsDrawing.Components;
 using MiniGames.PointsDrawing.Configs;
 using MiniGames.PointsDrawing.Services;
@@ -18,9 +19,11 @@ using UnityEngine;
 
 using Utility;
 
+using Extensions = Utility.Extensions;
+
 namespace MiniGames.PointsDrawing.Systems
 {
-    public class LineDrawingSystem : IEcsRunSystem, IEcsDestroySystem
+    public class LineDrawingSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private EcsWorldInject _eventsWorld = Constants.Events;
 
@@ -35,12 +38,18 @@ namespace MiniGames.PointsDrawing.Systems
         private EcsCustomInject<IterationRepository> _repository = default;
         private EcsCustomInject<Transform> _rootTransform = default;
 
+        private EcsWorld _globalWorld;
         private LineView _lineView;
         private DotView _lastConnectedDot;
         private CancellationTokenSource _destroyCts = new CancellationTokenSource();
         private bool _canDraw;
         private int _connectedDotsCounter;
 
+        public void Init(EcsSystems systems)
+        {
+            _globalWorld = Extensions.GetGlobalWorld();
+        }
+        
         public void Run(EcsSystems systems)
         {
             HandleIterationStart();
@@ -179,6 +188,7 @@ namespace MiniGames.PointsDrawing.Systems
             _lastConnectedDot = dotView;
             _lastConnectedDot.IsCorrectForStart = true;
             _connectedDotsCounter++;
+            _globalWorld.SendFillToolbarEvent();
         }
 
         private void HandleAllDotsConnected()
