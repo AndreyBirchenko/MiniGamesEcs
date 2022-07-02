@@ -62,5 +62,12 @@ namespace Utility
             var worldProvider = UnityEngine.Object.FindObjectOfType<GlobalWorldProvider>();
             return worldProvider.GetWorld();
         }
+
+        public static void SendEmptyEvent<T>(this EcsWorld world) where T : struct
+        {
+            var entity = world.NewEntity();
+            var pool = world.GetPool<T>();
+            pool.Add(entity);
+        }
     }
 }

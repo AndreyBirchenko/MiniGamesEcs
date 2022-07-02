@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: PoppingItems
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: aeca99e00e1e35f4fb9161deb54df560
+    m_Address: PointsDrawing
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c728c77b8c919764d92dc706f1d47bb0, type: 2}
   m_SchemaSet:

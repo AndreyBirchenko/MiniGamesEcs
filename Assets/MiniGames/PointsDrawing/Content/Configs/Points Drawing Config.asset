@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01eb5a99f22f4c0eaf3277f30ce85c27, type: 3}
+  m_Name: Points Drawing Config
+  m_EditorClassIdentifier: 
+  <Scene>k__BackingField:
+    m_AssetGUID: aeca99e00e1e35f4fb9161deb54df560
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  <Iterations>k__BackingField:
+  - <StartingNumber>k__BackingField: 1
+  - <StartingNumber>k__BackingField: 5
+  - <StartingNumber>k__BackingField: 10
+  <DotView>k__BackingField: {fileID: 3153426592113462775, guid: a72174ed365f10146a133e686b98bf47, type: 3}
+  <ItemViews>k__BackingField:
+  - {fileID: 4338829604321537176, guid: e0ae88669e6b3ea4c8ad914d138381a8, type: 3}
+  - {fileID: 4338829604321537176, guid: c404f5a47acfaf94dabecb165cf288c9, type: 3}
+  - {fileID: 4338829604321537176, guid: db4f7f75c85df184b9c4b869dcc9edf5, type: 3}
+  <LineView>k__BackingField: {fileID: 2446554611210834812, guid: ddfbe8bde1fc320488a93b92d948b4a1, type: 3}
