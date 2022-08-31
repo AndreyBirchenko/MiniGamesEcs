@@ -9,7 +9,7 @@ namespace PoppingItems.Services
         private readonly int _rightTaskSpawnChance = 50;
         public TaskComponent GlobalTask { get; private set; }
 
-        public void GenerateGlobalTask()
+        public void CreateGlobalTask()
         {
             var answer = Random.Range(0, 100);
             GlobalTask = new TaskComponent {Answer = answer};
@@ -20,7 +20,7 @@ namespace PoppingItems.Services
             return GlobalTask.Answer.Equals(taskComponent.Answer);
         }
 
-        public TaskComponent GetRandomTask()
+        public TaskComponent CreateRandomTask()
         {
             return Random.Range(0, 100) <= _rightTaskSpawnChance
                 ? new TaskComponent {Answer = GlobalTask.Answer}

@@ -40,7 +40,8 @@ namespace PoppingItems.Systems
 
                 bubbleView.PlayPopAnimation();
 
-                if (!bubbleView.PackedEntityWithWorld.Unpack(out var world, out var bubbleEntity)) continue;
+                if (!bubbleView.PackedEntityWithWorld.Unpack(out var world, out var bubbleEntity)) 
+                    continue;
 
                 var taskPool = world.GetPool<TaskComponent>();
                 ref var taskComponent = ref taskPool.Get(bubbleEntity);
@@ -51,7 +52,8 @@ namespace PoppingItems.Systems
                     _rightAnswersCounter++;
                 }
 
-                if (_rightAnswersCounter >= _config.Value.RightAnswersCount) _globalWorld.SendShowEndGamePopupEvent();
+                if (_rightAnswersCounter >= _config.Value.RightAnswersCount) 
+                    _globalWorld.SendShowEndGamePopupEvent();
             }
         }
     }

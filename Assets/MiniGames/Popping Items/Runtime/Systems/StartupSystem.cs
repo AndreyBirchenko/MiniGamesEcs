@@ -21,7 +21,7 @@ namespace PoppingItems.Systems
         {
             var globalWorld = Extensions.GetGlobalWorld();
 
-            _taskService.Value.GenerateGlobalTask();
+            _taskService.Value.CreateGlobalTask();
             globalWorld.SendShowToolbarEvent(_config.Value.RightAnswersCount,
                 $"Pop all bubbles with number {_taskService.Value.GlobalTask.Answer.ToString()}");
         }

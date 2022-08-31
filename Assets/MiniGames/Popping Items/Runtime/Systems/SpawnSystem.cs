@@ -45,7 +45,7 @@ namespace PoppingItems.Systems
                 var prefab = _config.Value.BubbleView;
                 var bubbleView = _objectPool.Value.Get(prefab);
 
-                var randomTask = _taskService.Value.GetRandomTask();
+                var randomTask = _taskService.Value.CreateRandomTask();
 
                 var bubbleEntity = _defaultWorld.Value.NewEntity();
 
