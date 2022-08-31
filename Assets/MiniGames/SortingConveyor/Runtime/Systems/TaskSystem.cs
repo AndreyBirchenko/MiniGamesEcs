@@ -9,7 +9,7 @@ using Leopotam.EcsLite.Di;
 using MiniGames.Core.EndGame.Runtime;
 using MiniGames.Core.Toolbar.Runtime;
 
-using PoppingItems.Services;
+using Utility;
 
 using Extensions = Utility.Extensions;
 using TaskService = Core.Services.TaskService;
@@ -26,7 +26,7 @@ namespace Core.Systems
         private readonly EcsCustomInject<Services.TaskService> _taskService = default;
         private readonly EcsFilterInject<Inc<GetTaskEvent>> f_getTask = Constants.Events;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _globalworld = Extensions.GetGlobalWorld();
 
@@ -37,7 +37,7 @@ namespace Core.Systems
             GenerateTask();
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in f_getTask.Value)
             {

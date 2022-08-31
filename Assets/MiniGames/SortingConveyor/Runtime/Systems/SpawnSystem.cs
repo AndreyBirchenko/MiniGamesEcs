@@ -5,7 +5,7 @@ using Core.Configs;
 using Core.Components.Events;
 using Core.Services;
 
-using PoppingItems.Services;
+using Utility;
 
 using UnityEngine;
 
@@ -18,12 +18,12 @@ namespace SortingConveyor.Systems
         private readonly EcsFilterInject<Inc<SpawnEvent>> _spawnFilter = Constants.Events;
         private Vector3 _spawnPosition;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _spawnPosition = GetSpawnPosition();
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _spawnFilter.Value)
             {

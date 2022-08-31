@@ -10,7 +10,7 @@ namespace MiniGames.Core.EndGame.Runtime
         private EcsCustomInject<EndGameService> _endGameService = default;
         private EcsFilterInject<Inc<ShowEndGamePopupEvent>> f_endGamePopup = default;
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             HandleShowEndGamePopupEvent();
         }

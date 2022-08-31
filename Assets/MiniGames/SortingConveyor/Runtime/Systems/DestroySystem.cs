@@ -16,7 +16,7 @@ namespace SortingConveyor.Systems
         private EcsCustomInject<SortingConveyorConfig> _config = default;
         private EcsCustomInject<ItemsFactory> _factory = default;
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _itemsFilter.Value)
             {

@@ -9,7 +9,7 @@ using MiniGames.Core.EndGame.Runtime;
 using MiniGames.Core.Toolbar.Runtime;
 
 using PoppingItems.Components;
-using PoppingItems.Services;
+using Utility;
 
 using Extensions = Utility.Extensions;
 
@@ -24,12 +24,12 @@ namespace PoppingItems.Systems
 
         private int _rightAnswersCounter;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _globalWorld = Extensions.GetGlobalWorld();
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _clickFilter.Value)
             {

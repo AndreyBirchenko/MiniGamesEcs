@@ -6,7 +6,6 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
 using PoppingItems.Components;
-using PoppingItems.Services;
 
 using UnityEngine;
 
@@ -33,12 +32,12 @@ namespace PoppingItems.Systems
             _rootTransform = rootTransform;
         }
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _objectPool.Value.SetRootTransform(_rootTransform);
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _spawnFilter.Value)
             {

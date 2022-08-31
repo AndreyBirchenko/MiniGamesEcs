@@ -77,5 +77,10 @@ namespace Core.Services.Toolbar.Views
 
             return DOTween.Sequence();
         }
+
+        private void OnDestroy()
+        {
+            GetSequence();
+        }
     }
 }

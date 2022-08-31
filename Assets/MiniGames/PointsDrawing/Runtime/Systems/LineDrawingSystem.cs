@@ -13,8 +13,6 @@ using MiniGames.PointsDrawing.Configs;
 using MiniGames.PointsDrawing.Services;
 using MiniGames.PointsDrawing.Views;
 
-using PoppingItems.Services;
-
 using UnityEngine;
 
 using Utility;
@@ -45,12 +43,12 @@ namespace MiniGames.PointsDrawing.Systems
         private bool _canDraw;
         private int _connectedDotsCounter;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _globalWorld = Extensions.GetGlobalWorld();
         }
         
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             HandleIterationStart();
             HandleDotClicked();
@@ -60,7 +58,7 @@ namespace MiniGames.PointsDrawing.Systems
             HandleAllDotsConnected();
         }
 
-        public void Destroy(EcsSystems systems)
+        public void Destroy(IEcsSystems systems)
         {
             _destroyCts.Cancel();
             _destroyCts.Dispose();

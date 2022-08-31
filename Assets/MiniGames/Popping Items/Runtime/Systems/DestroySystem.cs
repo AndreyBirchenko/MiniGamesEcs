@@ -6,7 +6,6 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
 using PoppingItems.Components;
-using PoppingItems.Services;
 
 using UnityEngine;
 
@@ -23,13 +22,13 @@ namespace PoppingItems.Systems
         private readonly EcsCustomInject<MonoPool<BubbleView, BubbleView>> _objectPool = default;
         private Vector3 _screenCentre;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _screenCentre =
                 _camera.Value.ScreenToWorldPoint(new Vector3((float) Screen.width / 2, (float) Screen.height / 2), 0);
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in _filter.Value)
             {

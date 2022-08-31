@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace PoppingItems.Services
+namespace Utility
 {
     public class TaskService
     {

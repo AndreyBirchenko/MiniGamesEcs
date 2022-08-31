@@ -11,8 +11,6 @@ using MiniGames.PointsDrawing.Components;
 using MiniGames.PointsDrawing.Configs;
 using MiniGames.PointsDrawing.Services;
 
-using PoppingItems.Services;
-
 using UnityEngine;
 
 using Utility;
@@ -35,14 +33,14 @@ namespace MiniGames.PointsDrawing.Systems
         private int _currentIterationIndex;
         private CancellationTokenSource _destroyCts;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _destroyCts = new CancellationTokenSource();
             _globalWorld = Extensions.GetGlobalWorld();
             LoadIterationAsync(_destroyCts.Token).Forget();
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in f_allDotsConnected.Value)
             {
@@ -51,7 +49,7 @@ namespace MiniGames.PointsDrawing.Systems
             }
         }
 
-        public void Destroy(EcsSystems systems)
+        public void Destroy(IEcsSystems systems)
         {
             _destroyCts.Cancel();
             _destroyCts.Dispose();

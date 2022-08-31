@@ -130,5 +130,10 @@ namespace Core.Views
 
             return DOTween.Sequence();
         }
+
+        private void OnDestroy()
+        {
+            GetSequence();
+        }
     }
 }

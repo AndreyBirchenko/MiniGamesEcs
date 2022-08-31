@@ -14,7 +14,7 @@ namespace SortingConveyor.Systems
         private EcsFilterInject<Inc<VerticalMovementComponent>> _verticalFilter = default;
         private EcsCustomInject<SortingConveyorConfig> _config = default;
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             HandleHorizontalMovement();
             HandleVerticalMovement();

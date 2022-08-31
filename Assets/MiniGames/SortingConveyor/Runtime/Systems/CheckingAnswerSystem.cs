@@ -6,7 +6,7 @@ using Core.Views;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using PoppingItems.Services;
+using Utility;
 
 using TaskService = Core.Services.TaskService;
 
@@ -22,13 +22,13 @@ namespace Core.Systems
         private EcsPoolInject<CheckAnswerEvent> p_checkAnswer;
         private EcsPoolInject<VerticalMovementComponent> p_verticalMovement;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _answerPanel = _sceneData.Value.AnswerPanelView;
             _eventsWorld = systems.GetWorld(Constants.Events);
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in f_checkAnswer.Value)
             {

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 using Core.Services;
 
@@ -47,6 +48,11 @@ namespace Core.Views
             if (_sequence != null && _sequence.IsActive()) _sequence.Kill();
 
             return DOTween.Sequence();
+        }
+
+        private void OnDestroy()
+        {
+            GetSequence();
         }
     }
 }

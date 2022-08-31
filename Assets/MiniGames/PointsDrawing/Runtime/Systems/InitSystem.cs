@@ -23,7 +23,7 @@ namespace MiniGames.PointsDrawing.Systems
         private UniqueRandomizer<ItemView> _itemRandomizer;
 
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _globalWorld = Extensions.GetGlobalWorld();
             _itemRandomizer = new UniqueRandomizer<ItemView>(_config.Value.ItemViews);

@@ -7,7 +7,7 @@ using Core.Views;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using PoppingItems.Services;
+using Utility;
 
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,13 +26,13 @@ namespace Core.Systems
         private EcsWorld _evensWorld;
         private Dictionary<PointerEventData, ItemView> _itemsInDrag;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _evensWorld = systems.GetWorld(Constants.Events);
             _itemsInDrag = new Dictionary<PointerEventData, ItemView>(4);
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             HandleBeginDrag();
             HandleDrag();

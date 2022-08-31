@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 
 using DG.Tweening;
 
-using PoppingItems.Services;
+using Utility;
 
 using UnityEngine;
 using UnityEngine.UI;

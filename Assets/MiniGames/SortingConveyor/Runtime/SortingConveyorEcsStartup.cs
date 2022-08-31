@@ -7,7 +7,7 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.UnityEditor;
 
-using PoppingItems.Services;
+using Utility;
 
 using SortingConveyor.Systems;
 
@@ -17,8 +17,8 @@ using TaskService = Core.Services.TaskService;
 
 namespace Core
 {
-    [AddComponentMenu(nameof(EcsStartup) + " in Sorting Conveyor")]
-    internal sealed class EcsStartup : MonoBehaviour
+    [AddComponentMenu(nameof(SortingConveyorEcsStartup) + " in Sorting Conveyor")]
+    internal sealed class SortingConveyorEcsStartup : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private SortingConveyorConfig _config;
@@ -70,9 +70,9 @@ namespace Core
         {
             if (_systems != null)
             {
-                _systems.Destroy();
                 _systems.GetWorld(Constants.Events).Destroy();
                 _systems.GetWorld().Destroy();
+                _systems.Destroy();
                 _systems = null;
             }
         }

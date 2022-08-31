@@ -13,7 +13,7 @@ namespace PoppingItems.Systems
     {
         private EcsFilterInject<Inc<BubbleComponent>> f_bubble = default;
         private EcsCustomInject<PoppingItemsConfig> _config = default;
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             foreach (var entity in f_bubble.Value)
             {

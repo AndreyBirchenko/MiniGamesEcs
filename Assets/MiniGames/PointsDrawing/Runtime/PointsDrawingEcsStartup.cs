@@ -8,7 +8,7 @@ using MiniGames.PointsDrawing.Configs;
 using MiniGames.PointsDrawing.Services;
 using MiniGames.PointsDrawing.Systems;
 
-using PoppingItems.Services;
+using Utility;
 
 using UnityEngine;
 
@@ -55,9 +55,9 @@ namespace MiniGames.PointsDrawing
         {
             if (_systems != null)
             {
-                _systems.Destroy();
                 _systems.GetWorld(Constants.Events).Destroy();
                 _systems.GetWorld().Destroy();
+                _systems.Destroy();
                 _systems = null;
             }
         }

@@ -6,7 +6,7 @@ using Leopotam.EcsLite.Di;
 
 using MiniGames.Core.Toolbar.Runtime;
 
-using PoppingItems.Services;
+using Utility;
 
 using Extensions = Utility.Extensions;
 
@@ -17,7 +17,7 @@ namespace PoppingItems.Systems
         private readonly EcsCustomInject<PoppingItemsConfig> _config = default;
         private readonly EcsCustomInject<TaskService> _taskService = default;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             var globalWorld = Extensions.GetGlobalWorld();
 

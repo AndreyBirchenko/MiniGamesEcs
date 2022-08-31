@@ -7,7 +7,6 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.UnityEditor;
 
-using PoppingItems.Services;
 using PoppingItems.Systems;
 
 using UnityEngine;
@@ -16,8 +15,8 @@ using Utility;
 
 namespace MiniGames.Poppingitems
 {
-    [AddComponentMenu(nameof(EcsStartup) + " in Popping Items")]
-    internal sealed class EcsStartup : MonoBehaviour
+    [AddComponentMenu(nameof(PoppingItemsEcsStartup) + " in Popping Items")]
+    internal sealed class PoppingItemsEcsStartup : MonoBehaviour
     {
         [SerializeField] private PoppingItemsConfig _config;
         [SerializeField] private Camera _camera;
@@ -59,9 +58,9 @@ namespace MiniGames.Poppingitems
         {
             if (_systems != null)
             {
-                _systems.Destroy();
                 _systems.GetWorld(Constants.Events).Destroy();
                 _systems.GetWorld().Destroy();
+                _systems.Destroy();
                 _systems = null;
             }
         }

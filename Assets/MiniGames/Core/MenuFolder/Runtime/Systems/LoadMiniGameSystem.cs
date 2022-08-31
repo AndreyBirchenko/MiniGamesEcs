@@ -29,13 +29,13 @@ namespace Client.Systems
         private BaseMiniGameConfig _currentMiniGameConfig;
         private CancellationTokenSource _ctsOnDestroy = new CancellationTokenSource();
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             CreateMenuButtons();
             SubscribeButtons();
         }
 
-        public void Destroy(EcsSystems systems)
+        public void Destroy(IEcsSystems systems)
         {
             _ctsOnDestroy?.Cancel();
             _ctsOnDestroy?.Dispose();

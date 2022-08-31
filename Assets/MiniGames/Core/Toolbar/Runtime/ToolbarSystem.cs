@@ -13,7 +13,7 @@ namespace MiniGames.Core.Toolbar.Runtime
         private EcsFilterInject<Inc<FillToolbarEvent>> f_fillEvent = default;
         private EcsFilterInject<Inc<ShowToolbarEvent>> f_showEvent = default;
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             HandleFillEvent();
             HandleShowEvent();

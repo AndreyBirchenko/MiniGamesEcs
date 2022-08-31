@@ -13,22 +13,18 @@ namespace Core.Services.Toolbar.Views
     public class ToolbarView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _taskTextMeshPro;
-        [SerializeField] private GameObject _slider;
+        [SerializeField] private Image _slider;
         [SerializeField] private Button _backButton;
 
         public Button BackButton => _backButton;
 
-        private float _deltaDistance = 2532;
-        private int _stepIndex;
-        private Vector3 _initPosition;
-        private List<Vector3> _positions;
+        private float _stepFillAmount;
 
         private Sequence _sequence;
 
         private void Awake()
         {
-            _initPosition = _slider.transform.position;
-            _positions = new List<Vector3>();
+            _slider.fillAmount = 0;
         }
 
         public void SetTaskText(string text)
@@ -38,30 +34,26 @@ namespace Core.Services.Toolbar.Views
 
         public void SetMaxAnswerCount(int maxStepsCount)
         {
-            var stepDistance = _deltaDistance / maxStepsCount;
-            var position = new Vector3(_slider.transform.position.x, _slider.transform.position.y, 0);
-                
-            for (int i = 0; i < maxStepsCount; i++)
-            {
-                position = new Vector3(position.x + stepDistance, position.y, 0);
-                _positions.Add(position);
-            }
+            _stepFillAmount = 1f / maxStepsCount;
         }
 
         public void Fill()
         {
-            if(_stepIndex >= _positions.Count)
+            var currentFillAmount = _slider.fillAmount;
+
+            if (currentFillAmount >= 1f)
                 return;
-            
+
             _sequence = GetSequence();
             _sequence
-                .Append(_slider.transform
-                    .DOMoveX(_positions[_stepIndex++].x, 0.4f));
+                .Append(_slider.DOFillAmount
+                    (currentFillAmount + _stepFillAmount, 0.4f));
         }
 
         public void Reset()
         {
-            _slider.transform.position = _initPosition;
+            _slider.fillAmount = 0;
+            GetSequence();
         }
 
         private Sequence GetSequence()

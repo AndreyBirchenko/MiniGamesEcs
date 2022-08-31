@@ -3,7 +3,7 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 
-using PoppingItems.Services;
+using Utility;
 
 using UnityEngine;
 
@@ -17,12 +17,12 @@ namespace Core.Systems
         private readonly ITimerComponent _timerComponent = new T();
         private float _time;
 
-        public void Init(EcsSystems systems)
+        public void Init(IEcsSystems systems)
         {
             _time = _timerComponent.Time;
         }
 
-        public void Run(EcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
             _time -= Time.deltaTime;
 
