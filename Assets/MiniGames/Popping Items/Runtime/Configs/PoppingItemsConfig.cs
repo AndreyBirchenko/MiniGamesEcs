@@ -14,5 +14,6 @@ namespace Core.Services.Toolbar.Configs
         [field: SerializeField] public float DestroyOffset { get; private set; }
         [field: SerializeField] public BubbleView BubbleView { get; private set; }
         [field: SerializeField] public Vector3[] SpawnPoints { get; private set; }
+        [field: SerializeField] public Color[] BubbleColors { get; private set; }
     }
 }

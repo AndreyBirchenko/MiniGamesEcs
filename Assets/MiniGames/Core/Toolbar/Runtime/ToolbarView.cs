@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using DG.Tweening;
+﻿using DG.Tweening;
 
 using TMPro;
 
@@ -19,8 +16,9 @@ namespace Core.Services.Toolbar.Views
         public Button BackButton => _backButton;
 
         private float _stepFillAmount;
+        private float _destinationFillAmount;
 
-        private Sequence _sequence;
+        private Tween _fillTween;
 
         private void Awake()
         {
@@ -39,32 +37,20 @@ namespace Core.Services.Toolbar.Views
 
         public void Fill()
         {
-            var currentFillAmount = _slider.fillAmount;
+            _destinationFillAmount += _stepFillAmount;
 
-            if (currentFillAmount >= 1f)
+            if (_slider.fillAmount >= 1f)
                 return;
 
-            _sequence = GetSequence();
-            _sequence
-                .Append(_slider.DOFillAmount
-                    (currentFillAmount + _stepFillAmount, 0.4f));
+            _fillTween?.Kill();
+            _fillTween = _slider.DOFillAmount(_destinationFillAmount, 0.4f);
         }
 
         public void Reset()
         {
             _slider.fillAmount = 0;
-            GetSequence();
-        }
-
-        private Sequence GetSequence()
-        {
-            if (_sequence.IsActive() && _sequence.IsPlaying())
-            {
-                _sequence.Kill();
-                _sequence = null;
-            }
-
-            return DOTween.Sequence();
+            _destinationFillAmount = 0;
+            _fillTween?.Kill();
         }
     }
 }

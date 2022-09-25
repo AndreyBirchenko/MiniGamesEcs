@@ -15,6 +15,11 @@ namespace Core.Services.Toolbar.Views
 
         private Sequence _sequence;
 
+        public void Awake()
+        {
+            _panel.SetActive(false);
+        }
+
         public void Show()
         {
             var initScale = _panel.transform.localScale;
@@ -22,6 +27,7 @@ namespace Core.Services.Toolbar.Views
 
             _sequence = GetSequence();
             _sequence
+                .AppendInterval(1)
                 .Append(_panel.transform.DOScale(Vector3.zero, 0))
                 .AppendCallback(() => _panel.SetActive(true))
                 .Append(_panel.transform.DOScale(initScale * 1.25f, animInterval / 2))

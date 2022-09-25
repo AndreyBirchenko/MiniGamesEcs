@@ -15,6 +15,7 @@ namespace Core.Services.Toolbar.Views
     public class BubbleView : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] private GameObject _spriteObject;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private ParticleSystem _particleSystem;
         [SerializeField] private Collider2D _collider2D;
         [SerializeField] private TextMeshPro _textMeshPro;
@@ -22,7 +23,7 @@ namespace Core.Services.Toolbar.Views
         public EcsPackedEntityWithWorld PackedEntityWithWorld { get; set; }
         public EcsWorld EcsEventWorld { get; set; }
 
-        private float _animDuration = 0.4f;
+        private float _animDuration = 0.3f;
         private Vector3 _initScale;
         private Sequence _sequence;
 
@@ -47,12 +48,13 @@ namespace Core.Services.Toolbar.Views
             eventComponent.PointerEventData = eventData;
         }
 
-        public void Initialize(string answerText)
+        public void Initialize(string answerText, Color color)
         {
             _spriteObject.SetActive(true);
             _spriteObject.transform.localScale = _initScale;
             _collider2D.enabled = true;
             _textMeshPro.text = answerText;
+            _spriteRenderer.color = color;
         }
 
         public void PlayPopAnimation()

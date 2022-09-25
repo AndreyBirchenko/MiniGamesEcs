@@ -45,10 +45,11 @@ namespace PoppingItems.Systems
                 var bubbleView = _objectPool.Value.Get(prefab);
 
                 var randomTask = _taskService.Value.CreateRandomTask();
+                var randomColor = _config.Value.BubbleColors.GetRandomElement();
 
                 var bubbleEntity = _defaultWorld.Value.NewEntity();
 
-                bubbleView.Initialize(randomTask.Answer.ToString());
+                bubbleView.Initialize(randomTask.Answer.ToString(), randomColor);
                 bubbleView.transform.position = GetUniquePosition();
                 bubbleView.PackedEntityWithWorld = _defaultWorld.Value.PackEntityWithWorld(bubbleEntity);
 
