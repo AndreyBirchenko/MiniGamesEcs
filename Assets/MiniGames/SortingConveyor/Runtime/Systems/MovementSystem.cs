@@ -8,11 +8,18 @@ using UnityEngine;
 
 namespace SortingConveyor.Systems
 {
-    public class MovementSystem : IEcsRunSystem
+    public class MovementSystem : IEcsRunSystem, IEcsInitSystem
     {
         private EcsFilterInject<Inc<HorizontalMovementComponent>> _horizontalFilter = default;
         private EcsFilterInject<Inc<VerticalMovementComponent>> _verticalFilter = default;
         private EcsCustomInject<SortingConveyorConfig> _config = default;
+
+        private EcsPool<HorizontalMovementComponent> _horizontalPool;
+
+        public void Init(IEcsSystems systems)
+        {
+            _horizontalPool = _horizontalFilter.Pools.Inc1;
+        }
 
         public void Run(IEcsSystems systems)
         {
@@ -24,8 +31,8 @@ namespace SortingConveyor.Systems
         {
             foreach (var entity in _horizontalFilter.Value)
             {
-                var pool = _horizontalFilter.Pools.Inc1;
-                var transform = pool.Get(entity).Transform;
+                ref var c_horizontalMovement = ref _horizontalPool.Get(entity);
+                var transform = c_horizontalMovement.Transform;
 
                 var velocity = Vector3.right * Time.deltaTime * _config.Value.MoveSpeed;
                 transform.Translate(velocity);

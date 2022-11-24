@@ -25,6 +25,8 @@ namespace Client
 
         void Start()
         {
+            QualitySettings.vSyncCount = 2;
+            
             var globalWorld = new EcsWorld();
             _globalWorldProvider.SetWorld(globalWorld);
 

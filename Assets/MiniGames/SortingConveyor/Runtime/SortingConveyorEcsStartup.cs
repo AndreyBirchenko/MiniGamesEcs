@@ -1,3 +1,5 @@
+using System;
+
 using Core.Components.Events;
 using Core.Configs;
 using Core.Services;
@@ -5,7 +7,10 @@ using Core.Systems;
 
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
+
+#if UNITY_EDITOR
 using Leopotam.EcsLite.UnityEditor;
+#endif
 
 using Utility;
 
@@ -30,8 +35,6 @@ namespace Core
 
         private void Start()
         {
-            Application.targetFrameRate = 60;
-
             _world = new EcsWorld();
             _eventsWorld = new EcsWorld();
             var itemsFactory = new ItemsFactory(_world, _config.Items, _eventsWorld, transform);
